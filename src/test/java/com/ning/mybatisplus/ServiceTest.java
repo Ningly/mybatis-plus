@@ -29,6 +29,7 @@ public class ServiceTest {
             users.add(user);
         }
         boolean b = userService.saveBatch(users);
+
         System.out.println(b);
     }
 }
