@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class ServiceTest {
@@ -31,5 +32,11 @@ public class ServiceTest {
         boolean b = userService.saveBatch(users);
 
         System.out.println(b);
+    }
+
+    @Test
+    public void testSelectAllByName(){
+        List<User> users = userService.selectAllByName("Jone");
+        users.forEach(System.out::println);
     }
 }
