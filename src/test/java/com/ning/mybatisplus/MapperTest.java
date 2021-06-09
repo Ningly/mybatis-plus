@@ -23,8 +23,8 @@ public class MapperTest {
 
 
     @Test
-    public void testInsert(){
-        User user=new User();
+    public void testInsert() {
+        User user = new User();
         user.setName("ning");
         user.setAge(22);
         user.setEmail("dafsdfasf");
@@ -35,7 +35,7 @@ public class MapperTest {
     }
 
     @Test
-    public void testSelect(){
+    public void testSelect() {
         User user = userMapper.selectById(1);
         System.out.println(user);
 
@@ -43,15 +43,15 @@ public class MapperTest {
         System.out.println(users);
 
         Map<String, Object> map = new HashMap<>();
-        map.put("name","ning");
-        map.put("age",22);
+        map.put("name", "ning");
+        map.put("age", 22);
         List<User> users1 = userMapper.selectByMap(map);
         System.out.println(users1);
     }
 
     @Test
-    public void testUpdate(){
-        User user=new User();
+    public void testUpdate() {
+        User user = new User();
         user.setId(1402437340223361025L);
         user.setAge(221);
         int result = userMapper.updateById(user);
@@ -59,16 +59,17 @@ public class MapperTest {
     }
 
     @Test
-    public void testDelete(){
+    public void testDelete() {
         int result = userMapper.deleteById(1402437340223361025L);
         System.out.println(result);
     }
 
     @Test
-    public void testSelectAllByName(){
+    public void testSelectAllByName() {
         List<User> users = userMapper.selectAllByName("Jone");
         users.forEach(System.out::println);
     }
+
     @Test
     public void testConcurrentUpdate() {
 
@@ -86,7 +87,7 @@ public class MapperTest {
         //4、小王将商品减了30元，存入了数据库
         p2.setPrice(p2.getPrice() - 30);
         int result2 = productMapper.updateById(p2);
-        if(result2 == 0){//更新失败，重试
+        if (result2 == 0) {//更新失败，重试
             System.out.println("小王重试");
             //重新获取数据
             p2 = productMapper.selectById(1L);

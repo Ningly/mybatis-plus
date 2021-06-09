@@ -10,9 +10,9 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
-//    @Resource
+    //    @Resource
 //    private UserMapper userMapper;
     @Override
     public List<User> selectAllByName(String name) {
