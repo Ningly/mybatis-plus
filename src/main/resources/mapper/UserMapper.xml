@@ -3,10 +3,23 @@
 
 <mapper namespace="com.ning.mybatisplus.mapper.UserMapper">
 
+    <resultMap id="myUser" type="com.ning.mybatisplus.entity.User">
+        <id column="uid" property="id"></id>
+        <result column="name" property="name"></result>
+    </resultMap>
     <sql id="Base_Column_List">
-        id,name,age,email
+        uid
+        ,name,age,email
     </sql>
     <select id="selectAllByName" resultType="com.ning.mybatisplus.entity.User">
-        select <include refid="Base_Column_List"></include> from t_user where name = #{name}
+        select <include refid="Base_Column_List"></include> from t_user where name = #{param1}
+    </select>
+
+    <!--    <select id="selectPageByAge" resultMap="myUser">-->
+    <!--        select <include refid="Base_Column_List"></include> from t_user where age > #{param1}-->
+    <!--    </select>-->
+
+    <select id="selectPageByAge" resultType="com.ning.mybatisplus.entity.User">
+        select <include refid="Base_Column_List"></include> from t_user where age > #{param1}
     </select>
 </mapper>
